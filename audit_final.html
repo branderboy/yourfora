@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"="width=device-width, initial-scale=1.0">
+    <title>Website Audit for yourfora.com - Fora</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --black: #0a0a0a;
+            --off-black: #1a1a1a;
+            --dark-gray: #2a2a2a;
+            --med-gray: #505050;
+            --light-gray: #e8e8e8;
+            --white: #fafafa;
+            --accent: #ff3d00;
+            --green: #00ff88;
+        }
+        
+        body {
+            font-family: 'Archivo', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+        }
+        
+        /* Audit Section */
+        .audit {
+            padding: 120px 0;
+        }
+        
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        h1 {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 32px;
+        }
+        
+        .audit h1 span {
+            color: var(--accent);
+        }
+        
+        .audit-intro {
+            font-size: 24px;
+            color: var(--light-gray);
+            max-width: 800px;
+            margin-bottom: 80px;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        h2 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 48px;
+        }
+        
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .finding {
+            background: var(--off-black);
+            padding: 40px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .finding h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .finding p {
+            color: var(--light-gray);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Stats */
+        .stats {
+            padding: 120px 0;
+            background: var(--off-black);
+            border-top: 1px solid var(--dark-gray);
+            border-bottom: 1px solid var(--dark-gray);
+        }
+        
+        .stats-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .stats-header h2 {
+            margin-bottom: 16px;
+        }
+        
+        .stats-header p {
+            font-size: 18px;
+            color: var(--light-gray);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--light-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Transition */
+        .transition {
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .transition h2 {
+            margin-bottom: 32px;
+        }
+        
+        .transition p {
+            font-size: 28px;
+            color: var(--light-gray);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        /* Build Section */
+        .build {
+            padding: 120px 0;
+            background: var(--off-black);
+            border-top: 1px solid var(--dark-gray);
+        }
+        
+        .system-grid {
+            display: grid;
+            gap: 2px;
+            background: var(--dark-gray);
+            margin-top: 64px;
+        }
+        
+        .system-item {
+            background: var(--black);
+            padding: 48px;
+        }
+        
+        .system-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .system-item h3 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+        
+        .system-item p {
+            color: var(--light-gray);
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .system-result {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 3px solid var(--green);
+            padding: 16px 24px;
+            font-size: 16px;
+        }
+        
+        .system-result strong {
+            color: var(--green);
+        }
+        
+        /* Results */
+        .results {
+            padding: 80px 0 120px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 64px;
+        }
+        
+        .result-card {
+            text-align: center;
+        }
+        
+        .result-number {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 16px;
+        }
+        
+        .result-label {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+        
+        .result-desc {
+            font-size: 18px;
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        /* Timeline */
+        .timeline-section {
+            padding: 120px 0;
+            background: var(--off-black);
+            border-top: 1px solid var(--dark-gray);
+        }
+        
+        .timeline {
+            margin-top: 64px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--dark-gray);
+        }
+        
+        .timeline-item {
+            padding-left: 120px;
+            margin-bottom: 64px;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: var(--black);
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .timeline-item h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-item p {
+            color: var(--light-gray);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .timeline-metric {
+            margin-top: 16px;
+            font-weight: 600;
+            color: var(--green);
+        }
+        
+        /* Next Steps */
+        .next {
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .next h2 {
+            margin-bottom: 24px;
+        }
+        
+        .next p {
+            font-size: 24px;
+            color: var(--light-gray);
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: var(--white);
+            padding: 20px 48px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 61, 0, 0.4);
+        }
+        
+        footer {
+            border-top: 1px solid var(--dark-gray);
+            padding: 48px 0;
+            text-align: center;
+            color: var(--med-gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 968px) {
+            h1 { font-size: 48px; }
+            h2 { font-size: 40px; }
+            .findings-grid, .stats-grid, .results-grid { grid-template-columns: 1fr; }
+            .timeline-item { padding-left: 80px; }
+            .timeline-marker { width: 40px; height: 40px; font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FORA</div>
+        </div>
+    </header>
+
+    <section class="audit">
+        <div class="container">
+            <div class="eyebrow">Website Audit for yourfora.com</div>
+            <h1>What We <span>Found</span></h1>
+            <p class="audit-intro">We examined yourfora.com to understand why qualified outpatient practices aren't converting into assessment calls. Here's what the data shows.</p>
+            
+            <div class="findings-grid">
+                <div class="finding">
+                    <h3>Authority Gap</h3>
+                    <p>Site doesn't acknowledge accounts receivable crossing 30%, denials at 20-25%, billing staff quitting, or payer audits. No specialty-specific language (DSM-5, KX modifiers, evaluation and management coding). Generic positioning identical to competitors.</p>
+                </div>
+                
+                <div class="finding">
+                    <h3>Conversion Leak</h3>
+                    <p>Generic "Connect with us" CTA doesn't pre-qualify or create urgency. Manual scheduling process loses 50% of interested practices between inquiry and call. Average 5-7 day lag to book.</p>
+                </div>
+                
+                <div class="finding">
+                    <h3>Discovery Problem</h3>
+                    <p>Missing specialty pages (Behavioral Health, Physical Therapy, Orthopedics, Urgent Care). Missing problem pages (denials, accounts receivable aging). Missing local pages (Washington DC, Maryland, Virginia). Can't rank for crisis-mode searches. Invisible in AI search results.</p>
+                </div>
+                
+                <div class="finding">
+                    <h3>Distribution Absence</h3>
+                    <p>No content to distribute. No videos, blog, case studies. No LinkedIn or YouTube presence. No email nurture sequences. Visitor comes once, leaves, never returns.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px;">
+                <h3 style="font-size: 32px; margin-bottom: 32px;">Current Conversion Path (Broken)</h3>
+                <div style="background: var(--off-black); padding: 40px; border-left: 4px solid var(--accent); margin-bottom: 48px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Step</th>
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Current Process</th>
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">What You Lose</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">1</td>
+                            <td style="padding: 16px; color: var(--white);">Practice clicks "Connect With Us"</td>
+                            <td style="padding: 16px; color: var(--white);">Nothing yet</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">2</td>
+                            <td style="padding: 16px; color: var(--white);">Fill generic contact form with no qualification</td>
+                            <td style="padding: 16px; color: var(--accent);">Sales can't prioritize hot leads</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">3</td>
+                            <td style="padding: 16px; color: var(--white);">Wait for manual response while problem gets worse</td>
+                            <td style="padding: 16px; color: var(--accent);">Practice searches competitors, finds instant booking</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">4</td>
+                            <td style="padding: 16px; color: var(--white);">Email back-and-forth to find mutual availability</td>
+                            <td style="padding: 16px; color: var(--accent);">Competitor already had their assessment call</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">5</td>
+                            <td style="padding: 16px; color: var(--white);">Call finally scheduled week later</td>
+                            <td style="padding: 16px; color: var(--accent);">Competitor already sent proposal</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 16px; color: var(--white); font-weight: 700;">Reality</td>
+                            <td style="padding: 16px; color: var(--white); font-weight: 700;">50% never make it to the call</td>
+                            <td style="padding: 16px; color: var(--accent); font-weight: 700; font-size: 20px;">$250K-$500K annual contract value lost to faster competitors</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 32px; margin-bottom: 32px;">Missing Content Assets</h3>
+                <div style="background: var(--off-black); padding: 40px; border-left: 4px solid var(--accent); margin-bottom: 48px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Content Type</th>
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Current Status</th>
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Impact</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Specialty Landing Pages</td>
+                            <td style="padding: 16px; color: var(--accent);">0 of 4 exist</td>
+                            <td style="padding: 16px; color: var(--white);">Can't rank for specialty searches</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Problem Landing Pages</td>
+                            <td style="padding: 16px; color: var(--accent);">0 of 4 exist</td>
+                            <td style="padding: 16px; color: var(--white);">Can't capture crisis-mode searches</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Local Landing Pages</td>
+                            <td style="padding: 16px; color: var(--accent);">0 of 3 exist</td>
+                            <td style="padding: 16px; color: var(--white);">Losing DC/MD/VA local traffic</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Videos</td>
+                            <td style="padding: 16px; color: var(--accent);">None</td>
+                            <td style="padding: 16px; color: var(--white);">No YouTube/LinkedIn presence</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Case Studies</td>
+                            <td style="padding: 16px; color: var(--accent);">None published</td>
+                            <td style="padding: 16px; color: var(--white);">No proof of results</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Email Sequences</td>
+                            <td style="padding: 16px; color: var(--accent);">Not active</td>
+                            <td style="padding: 16px; color: var(--white);">No lead nurture</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 16px; color: var(--white);">Blog Content</td>
+                            <td style="padding: 16px; color: var(--accent);">Doesn't exist</td>
+                            <td style="padding: 16px; color: var(--white);">No organic traffic growth</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 32px; margin-bottom: 32px;">Technical Infrastructure Gaps</h3>
+                <div style="background: var(--off-black); padding: 40px; border-left: 4px solid var(--accent);">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Infrastructure Element</th>
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">Status</th>
+                            <th style="text-align: left; padding: 16px; font-size: 18px; color: var(--white);">What This Costs You</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Calendar Integration</td>
+                            <td style="padding: 16px; color: var(--accent);">Not implemented</td>
+                            <td style="padding: 16px; color: var(--white);">50% lead loss from manual scheduling</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Email Automation</td>
+                            <td style="padding: 16px; color: var(--accent);">Not active</td>
+                            <td style="padding: 16px; color: var(--white);">Manual follow-up, slow response</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Lead Scoring</td>
+                            <td style="padding: 16px; color: var(--accent);">Doesn't exist</td>
+                            <td style="padding: 16px; color: var(--white);">Sales wastes time on unqualified leads</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Schema Markup</td>
+                            <td style="padding: 16px; color: var(--accent);">Missing</td>
+                            <td style="padding: 16px; color: var(--white);">Lower search visibility</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--dark-gray);">
+                            <td style="padding: 16px; color: var(--white);">Google Business Profile</td>
+                            <td style="padding: 16px; color: var(--accent);">Not optimized</td>
+                            <td style="padding: 16px; color: var(--white);">Missing local search traffic</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 16px; color: var(--white);">Customer Relationship Management Integration</td>
+                            <td style="padding: 16px; color: var(--accent);">Not visible</td>
+                            <td style="padding: 16px; color: var(--white);">No lead tracking or attribution</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-header">
+                <h2>The Market Reality</h2>
+                <p>These are the thresholds forcing practices to outsource billing</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">20%</span>
+                    <span class="stat-label">Denial Rates</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Accounts Receivable Over 90 Days</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">35%</span>
+                    <span class="stat-label">Staff Turnover</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50%</span>
+                    <span class="stat-label">Current Lead Loss</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transition">
+        <div class="container">
+            <h2>Here's What We Build</h2>
+            <p>Four integrated systems that fix every gap - turning your digital presence into a conversion engine that brings qualified practices to you daily.</p>
+        </div>
+    </section>
+
+    <section class="build">
+        <div class="container">
+            <h2>What We Build</h2>
+            
+            <div class="system-grid">
+                <div class="system-item">
+                    <div class="system-number">01 — AUTHORITY</div>
+                    <h3>Website Redesign</h3>
+                    <p>4 specialty landing pages: Behavioral Health Billing, Physical Therapy Billing, Orthopedic Billing, Urgent Care Billing. 4 problem landing pages: High Denial Rates, Accounts Receivable Over 90 Days, Prior Authorization Delays, Billing Staff Turnover. 3 local landing pages: Washington DC Medical Billing, Maryland Medical Billing, Virginia Medical Billing.</p>
+                    <div class="system-result">
+                        <strong>What this fixes:</strong> Practices land on pages that describe their exact situation. They see you've solved this before. Pre-qualified before any call.
+                    </div>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-number">02 — AUTOMATION</div>
+                    <h3>Conversion Infrastructure</h3>
+                    <p>Calendly integration for instant booking. Pre-qualification intake forms. 5 email automation sequences: welcome, pre-call prep, 24-hour reminder, no-show recovery, post-call follow-up. HubSpot lead scoring rules. Zapier workflows connecting forms to customer relationship management.</p>
+                    <div class="system-result">
+                        <strong>What this fixes:</strong> Interested practices book calls immediately, not 5 days later. 80% show rate vs 50% manual. Sales team only talks to qualified leads.
+                    </div>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-number">03 — DISCOVERY</div>
+                    <h3>Search Infrastructure</h3>
+                    <p>XML sitemap with automatic updates. Schema markup (Organization, Service, FAQ). Google Search Console setup and monitoring. Google Business Profile optimization with weekly posts. Meta titles and descriptions for every page. Internal linking structure. AI-optimized content formatting.</p>
+                    <div class="system-result">
+                        <strong>What this fixes:</strong> Get found by practices searching "behavioral health billing denials" or "accounts receivable over 90 days" - crisis-mode, ready-to-act searches.
+                    </div>
+                </div>
+                
+                <div class="system-item">
+                    <div class="system-number">04 — DISTRIBUTION</div>
+                    <h3>Content Assets</h3>
+                    <p>12 short-form videos (60 seconds each) for YouTube and LinkedIn. 24 social media posts with denial rate data and case study snippets. 3 email nurture sequences for warm leads. 4 written case studies with before/after metrics. Client testimonial videos.</p>
+                    <div class="system-result">
+                        <strong>What this fixes:</strong> Pre-sell authority before practices visit your site. Stay visible for weeks. Turn cold traffic into warm leads.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results">
+        <div class="container">
+            <h2>What These Marketing Assets Can Do</h2>
+            <p class="section-desc">Once these systems are live, here's the direct impact on your business growth and revenue pipeline.</p>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">2-4x</div>
+                    <div class="result-label">Increase in Qualified Traffic</div>
+                    <div class="result-desc">Specialty and problem landing pages rank for crisis-mode searches. Practices actively looking for help find you first instead of generic competitors.</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">30-40</div>
+                    <div class="result-label">Pre-Qualified Leads Monthly</div>
+                    <div class="result-desc">Assessment call requests from practices experiencing real billing failures. Not tire-kickers. Actual decision-makers with broken systems ready to outsource.</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">5-8</div>
+                    <div class="result-label">New Client Conversions</div>
+                    <div class="result-desc">Automated conversion funnel turns qualified leads into booked calls, then closes at higher rates because prospects are pre-sold on your authority.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <div class="container">
+            <h2>What We Deliver</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <h3>Website Redesign</h3>
+                    <p><strong>What you get:</strong> 4 specialty landing pages (Behavioral Health Billing, Physical Therapy Billing, Orthopedic Billing, Urgent Care Billing). 4 problem landing pages (High Denial Rates, Accounts Receivable Over 90 Days, Prior Authorization Delays, Billing Staff Turnover). 3 local landing pages (Washington DC Medical Billing, Maryland Medical Billing, Virginia Medical Billing).</p>
+                    <p><strong>Why this works:</strong> Practices search crisis-mode problems. They land on pages that describe their exact situation. They see you've solved it before. They're pre-qualified before clicking anything.</p>
+                    <div class="timeline-metric">→ Gets you found and builds authority</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <h3>Sales Funnel</h3>
+                    <p><strong>What you get:</strong> Revenue Leakage Assessment landing page with pre-qualification form. Calendly instant booking system. Thank you page with calendar embed. Confirmation emails with prep instructions.</p>
+                    <p><strong>Why this works:</strong> Interested practices book assessment calls in 2 minutes instead of waiting 5-7 days for email back-and-forth. 80% show rate instead of 50%. Sales only talks to qualified leads.</p>
+                    <div class="timeline-metric">→ Turns traffic into booked calls</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <h3>Automation Flow</h3>
+                    <p><strong>What you get:</strong> 5 email sequences (welcome, pre-call prep, 24-hour reminder, 2-hour reminder, no-show recovery). HubSpot lead scoring rules. Zapier workflows connecting forms to customer relationship management. Automated tagging by specialty and problem type.</p>
+                    <p><strong>Why this works:</strong> Zero manual follow-up. Leads get nurtured automatically. Sales team sees lead quality scores before calling. No one falls through cracks.</p>
+                    <div class="timeline-metric">→ Eliminates manual work and lead loss</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <h3>Social Media Content Distribution</h3>
+                    <p><strong>What you get:</strong> 12 short-form videos (60 seconds, YouTube and LinkedIn). 24 LinkedIn posts with denial rate stats and problem breakdowns. 3 email nurture sequences for warm leads. 4 case studies with before/after metrics.</p>
+                    <p><strong>Why this works:</strong> Pre-sells your authority before practices visit your site. Keeps you visible to prospects not ready to book yet. Feeds them crisis-focused content until they're ready to act.</p>
+                    <div class="timeline-metric">→ Stays in front of prospects and builds trust</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="next">
+        <div class="container">
+            <h2>Next Steps</h2>
+            <p>Walk through scope, timeline, and how this integrates with your current setup. Then you decide if it makes sense.</p>
+            <a href="mailto:contact@yourfora.com?subject=Implementation Discussion" class="btn">Schedule Implementation Call</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fora</p>
+        </div>
+    </footer>
+</body>
+</html>
