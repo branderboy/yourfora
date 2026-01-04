@@ -14,14 +14,21 @@
         }
         
         :root {
+            --primary: #0066FF;
+            --secondary: #FF6B00;
+            --success: #00D563;
+            --dark: #1a1a1a;
+            --bg: #F7FAFC;
+            --white: #ffffff;
+            --text: #2D3748;
+            --light: #718096;
             --black: #0a0a0a;
             --off-black: #1a1a1a;
             --dark-gray: #2a2a2a;
             --med-gray: #505050;
             --light-gray: #e8e8e8;
-            --white: #fafafa;
-            --accent: #ff3d00;
-            --green: #00ff88;
+            --accent: #0066FF;
+            --green: #00D563;
         }
         
         body {
@@ -49,7 +56,7 @@
         
         /* Audit Section */
         .audit {
-            padding: 60px 0 120px;
+            padding: 120px 0;
         }
         
         .eyebrow {
@@ -392,45 +399,6 @@
         </div>
     </header>
 
-    <section style="padding: 80px 0 40px;">
-        <div class="container">
-            <h3 style="font-size: 32px; font-weight: 700; margin-bottom: 48px; text-align: center; color: var(--white);">A Snapshot of Your Discovery Path</h3>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <svg viewBox="0 0 900 400" style="width: 100%; display: block;">
-                    <!-- Platform labels -->
-                    <text x="50" y="80" fill="#e8e8e8" font-size="18" font-weight="600">Google Search</text>
-                    <text x="50" y="160" fill="#e8e8e8" font-size="18" font-weight="600">AI Discovery</text>
-                    <text x="50" y="240" fill="#e8e8e8" font-size="18" font-weight="600">LinkedIn</text>
-                    <text x="50" y="320" fill="#e8e8e8" font-size="18" font-weight="600">Social Media</text>
-                    
-                    <!-- Background bars (full width) -->
-                    <rect x="280" y="60" width="600" height="30" fill="#2a2a2a" rx="4"/>
-                    <rect x="280" y="140" width="600" height="30" fill="#2a2a2a" rx="4"/>
-                    <rect x="280" y="220" width="600" height="30" fill="#2a2a2a" rx="4"/>
-                    <rect x="280" y="300" width="600" height="30" fill="#2a2a2a" rx="4"/>
-                    
-                    <!-- Current visibility bars (very small - showing low visibility) -->
-                    <rect x="280" y="60" width="80" height="30" fill="#ff3d00" rx="4"/>
-                    <rect x="280" y="140" width="20" height="30" fill="#ff3d00" rx="4"/>
-                    <rect x="280" y="220" width="15" height="30" fill="#ff3d00" rx="4"/>
-                    <rect x="280" y="300" width="10" height="30" fill="#ff3d00" rx="4"/>
-                    
-                    <!-- Percentage labels -->
-                    <text x="370" y="82" fill="#fafafa" font-size="16" font-weight="700">13%</text>
-                    <text x="310" y="162" fill="#fafafa" font-size="16" font-weight="700">3%</text>
-                    <text x="305" y="242" fill="#fafafa" font-size="16" font-weight="700">2%</text>
-                    <text x="300" y="322" fill="#fafafa" font-size="16" font-weight="700">1%</text>
-                    
-                    <!-- Status labels -->
-                    <text x="520" y="82" fill="#e8e8e8" font-size="14">Missing specialty + problem pages</text>
-                    <text x="520" y="162" fill="#e8e8e8" font-size="14">Invisible in ChatGPT/Claude/Perplexity</text>
-                    <text x="520" y="242" fill="#e8e8e8" font-size="14">No company page, no posts, no videos</text>
-                    <text x="520" y="322" fill="#e8e8e8" font-size="14">No YouTube, no content distribution</text>
-                </svg>
-            </div>
-        </div>
-    </section>
-
     <section class="audit">
         <div class="container">
             <div class="eyebrow">Website Audit for yourfora.com</div>
@@ -471,7 +439,7 @@
                         <tr style="border-bottom: 1px solid var(--dark-gray);">
                             <td style="padding: 16px; color: var(--white);">1</td>
                             <td style="padding: 16px; color: var(--white);">Practice clicks "Connect With Us"</td>
-                            <td style="padding: 16px; color: var(--white);">Nothing yet</td>
+                            <td style="padding: 16px; color: var(--accent);">No instant booking - friction starts here</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--dark-gray);">
                             <td style="padding: 16px; color: var(--white);">2</td>
@@ -633,9 +601,18 @@
                 <div class="system-item">
                     <div class="system-number">01 — AUTHORITY</div>
                     <h3>Website Redesign</h3>
-                    <p>4 specialty landing pages: Behavioral Health Billing, Physical Therapy Billing, Orthopedic Billing, Urgent Care Billing. 4 problem landing pages: High Denial Rates, Accounts Receivable Over 90 Days, Prior Authorization Delays, Billing Staff Turnover. 3 local landing pages: Washington DC Medical Billing, Maryland Medical Billing, Virginia Medical Billing.</p>
+                    <p>Professional website showcasing your core medical billing services with clean, institutional-grade design that mirrors high-end insurance companies.</p>
+                    
+                    <p style="margin-top: 16px; font-weight: 600;">Your Core Services Featured:</p>
+                    <ul style="margin-top: 8px; margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Claims Management:</strong> Daily submissions, tracking, corrections</li>
+                        <li><strong>Denial Management:</strong> Prevention, appeals, payer outreach</li>
+                        <li><strong>Payment & Collections:</strong> Posting, A/R management, recovery</li>
+                        <li><strong>Insurance Coordination:</strong> Government, commercial, private payers</li>
+                    </ul>
+                    
                     <div class="system-result">
-                        <strong>What this fixes:</strong> Practices land on pages that describe their exact situation. They see you've solved this before. Pre-qualified before any call.
+                        <strong>What this fixes:</strong> Practices see exactly what you do and how you solve their billing problems. No guessing. Clear service breakdown builds trust before any call.
                     </div>
                 </div>
                 
@@ -650,10 +627,10 @@
                 
                 <div class="system-item">
                     <div class="system-number">03 — DISCOVERY</div>
-                    <h3>Search Infrastructure</h3>
-                    <p>XML sitemap with automatic updates. Schema markup (Organization, Service, FAQ). Google Search Console setup and monitoring. Google Business Profile optimization with weekly posts. Meta titles and descriptions for every page. Internal linking structure. AI-optimized content formatting.</p>
+                    <h3>Search Engine Optimization</h3>
+                    <p>We make sure practices find you when they search for medical billing help. Your site shows up on Google when practices search for claims management, denial services, A/R recovery, or insurance coordination. We optimize your Google Business Profile so local practices see you first in their area.</p>
                     <div class="system-result">
-                        <strong>What this fixes:</strong> Get found by practices searching "behavioral health billing denials" or "accounts receivable over 90 days" - crisis-mode, ready-to-act searches.
+                        <strong>What this fixes:</strong> Get found by practices searching "medical billing claims management", "denial management services", "accounts receivable recovery", or "insurance billing coordination" - service-specific, high-intent searches.
                     </div>
                 </div>
                 
@@ -702,9 +679,17 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">1</div>
                     <h3>Website Redesign</h3>
-                    <p><strong>What you get:</strong> 4 specialty landing pages (Behavioral Health Billing, Physical Therapy Billing, Orthopedic Billing, Urgent Care Billing). 4 problem landing pages (High Denial Rates, Accounts Receivable Over 90 Days, Prior Authorization Delays, Billing Staff Turnover). 3 local landing pages (Washington DC Medical Billing, Maryland Medical Billing, Virginia Medical Billing).</p>
-                    <p><strong>Why this works:</strong> Practices search crisis-mode problems. They land on pages that describe their exact situation. They see you've solved it before. They're pre-qualified before clicking anything.</p>
-                    <div class="timeline-metric">→ Gets you found and builds authority</div>
+                    <p><strong>What you get:</strong> Professional website showcasing your core medical billing services organized into clear categories:</p>
+                    
+                    <ul style="margin: 12px 0 12px 20px; line-height: 1.8;">
+                        <li><strong>Claims Management:</strong> Daily submissions, tracking, corrections</li>
+                        <li><strong>Denial Management:</strong> Prevention, appeals, payer outreach</li>
+                        <li><strong>Payment & Collections:</strong> Posting, A/R management, recovery</li>
+                        <li><strong>Insurance Coordination:</strong> Government, commercial, private payers</li>
+                    </ul>
+                    
+                    <p><strong>Why this works:</strong> Practices see exactly what you do and understand how you solve their billing problems. Clear service breakdown builds trust and credibility before any sales call.</p>
+                    <div class="timeline-metric">→ Establishes authority and builds trust</div>
                 </div>
                 
                 <div class="timeline-item">
@@ -738,14 +723,9 @@
         <div class="container">
             <h2>Next Steps</h2>
             <p>Walk through scope, timeline, and how this integrates with your current setup. Then you decide if it makes sense.</p>
-            <a href="mailto:contact@yourfora.com?subject=Implementation Discussion" class="btn">Schedule Implementation Call</a>
+            <a href="/cdn-cgi/l/email-protection#482b27263c292b3c0831273d3a2e273a29662b2725773b3d2a222d2b3c75012538242d252d263c293c212726680c213b2b3d3b3b212726" class="btn">Schedule Implementation Call</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Fora</p>
-        </div>
-    </footer>
-</body>
-</html>
