@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,23 +58,29 @@
 
         .crowd-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .crowd-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
         }
         .crowd-item {
             aspect-ratio: 4/5;
             overflow: hidden;
             border-radius: 1rem;
+            background-color: #1e293b;
         }
         .crowd-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(20%) contrast(110%);
+            filter: contrast(110%);
             transition: all 0.5s ease;
         }
         .crowd-item:hover img {
-            filter: grayscale(0%) contrast(120%);
+            filter: contrast(125%) brightness(110%);
             transform: scale(1.05);
         }
     </style>
@@ -93,21 +100,15 @@
         New Brand Placement Drop In: <span id="countdown" class="font-mono text-lg ml-1 text-indigo-400">02:14</span>
     </div>
 
-    <!-- HERO SECTION WITH HIGH-IMPACT BACKGROUND IMAGE -->
+    <!-- HERO SECTION -->
     <div class="relative overflow-hidden bg-slate-950 border-b border-indigo-900/30">
-        <!-- MASSIVE BACKGROUND IMAGE -->
-        <div class="absolute inset-0 z-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center mix-blend-luminosity"></div>
-        
-        <!-- DARK OVERLAY FOR READABILITY -->
+        <div class="absolute inset-0 z-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-luminosity"></div>
         <div class="absolute inset-0 z-0 bg-gradient-to-b from-slate-950/90 via-slate-950/40 to-slate-950/90"></div>
-        
-        <!-- Large Brand Watermark -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
             <span class="text-stroke font-anton text-[20vw] select-none opacity-50 transform -rotate-12 translate-y-10">
                 BRANDENGINE
             </span>
         </div>
-
         <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[140px] -z-10 animate-pulse"></div>
         
         <header class="relative z-10 px-4 py-16 md:py-24 max-w-5xl mx-auto flex flex-col items-center justify-center text-center gap-10">
@@ -130,41 +131,36 @@
                         <div class="animate-point-right">
                             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="filter drop-shadow-[0_0_12px_rgba(129,140,248,0.7)]">
                                 <defs>
-                                    <linearGradient id="arrow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <linearGradient id="arrow-grad-form" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#818cf8" />
                                         <stop offset="100%" style="stop-color:#c084fc" />
                                     </linearGradient>
                                 </defs>
-                                <path d="M13 17L18 12L13 7" stroke="url(#arrow-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6 17L11 12L6 7" stroke="url(#arrow-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                                <path d="M13 17L18 12L13 7" stroke="url(#arrow-grad-form)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 17L11 12L6 7" stroke="url(#arrow-grad-form)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
                             </svg>
                         </div>
                     </div>
-
                     <div id="signup-step" class="w-full bg-white p-8 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 relative z-10">
                         <h3 class="text-3xl font-anton text-slate-900 mb-2 uppercase">Secure Access</h3>
                         <p class="text-slate-500 text-sm mb-6 font-medium text-left">The best placements go to our network first. Get early access before public release.</p>
-                        
                         <form class="flex flex-col gap-4" id="network-form">
                             <input type="text" placeholder="Brand Name" required class="bg-gray-50 border border-gray-200 text-slate-800 px-5 py-4 rounded-xl font-semibold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all">
                             <input type="text" placeholder="Contact Name" required class="bg-gray-50 border border-gray-200 text-slate-800 px-5 py-4 rounded-xl font-semibold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all">
                             <input type="email" placeholder="Email Address" required class="bg-gray-50 border border-gray-200 text-slate-800 px-5 py-4 rounded-xl font-semibold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all">
                             <input type="tel" placeholder="Phone (Optional)" class="w-full bg-gray-50 border border-gray-200 text-slate-800 px-5 py-4 rounded-xl font-semibold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all">
                             <input type="text" placeholder="Industry / Type of Brand" required class="bg-gray-50 border border-gray-200 text-slate-800 px-5 py-4 rounded-xl font-semibold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 transition-all">
-                            
                             <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white text-xl font-bold py-5 rounded-xl uppercase transition-all shadow-[0_8px_20px_rgba(79,70,229,0.3)] hover:-translate-y-1 mt-2">
                                 Get Brand Placement Opportunities
                             </button>
                         </form>
                     </div>
-
                     <div id="confirmation-step" class="hidden-step w-full bg-slate-900 p-8 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-slate-700 relative z-10 text-center">
-                        <div class="w-16 h-16 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-indigo-500/30">
-                            <i data-lucide="check" class="w-8 h-8 text-indigo-400"></i>
+                        <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-500/30">
+                            <i data-lucide="check" class="w-8 h-8 text-emerald-400"></i>
                         </div>
                         <h3 class="text-2xl font-anton text-white mb-2 uppercase">Brand Priority Activated</h3>
                         <p class="text-slate-400 text-sm mb-8 font-medium italic">New campaign opportunities are sent via email. Not all brands are selected for every placement.</p>
-                        
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-left space-y-4">
                              <div class="flex items-center gap-4">
                                 <i data-lucide="mail" class="w-5 h-5 text-indigo-400"></i>
@@ -182,11 +178,15 @@
     </div>
 
     <!-- THE PROBLEM SECTION -->
-    <section class="py-20 md:py-32 bg-white border-b border-slate-100">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-6xl font-anton text-slate-900 mb-8 uppercase leading-tight">Impressions are cheap. <span class="text-slate-400">Attention is rare.</span></h2>
-            
-            <div class="grid md:grid-cols-3 gap-12 text-center">
+    <section class="py-20 md:py-32 bg-white border-b border-slate-100 text-center">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-anton text-slate-900 mb-2 uppercase leading-tight">
+                Impressions are cheap.
+            </h2>
+            <h2 class="text-4xl md:text-6xl font-anton text-slate-400 mb-8 uppercase leading-tight">
+                Attention is rare.
+            </h2>
+            <div class="grid md:grid-cols-3 gap-12 mt-16">
                 <div class="flex flex-col items-center">
                     <div class="bg-rose-50 w-14 h-14 rounded-full flex items-center justify-center mb-6">
                         <i data-lucide="eye-off" class="text-rose-600"></i>
@@ -218,9 +218,8 @@
             <div class="flex flex-col md:flex-row items-center gap-16">
                 <div class="w-full md:w-1/2">
                     <h2 class="text-5xl md:text-7xl font-anton text-slate-900 mb-6 uppercase leading-tight">Stop Buying Space. <span class="text-indigo-600">Embed Your Brand.</span></h2>
-                    <p class="text-lg text-slate-600 font-medium leading-relaxed mb-8">We build high-attention campaigns that people actually care about. We then insert your brand into the core of those experiences. <strong class="text-slate-900">Brands in our network don't chase attention—they plug into it.</strong></p>
-                    
-                    <ul class="space-y-4">
+                    <p class="text-lg text-slate-600 font-medium leading-relaxed mb-8 text-left">We build high-attention campaigns that people actually care about. We then insert your brand into the core of those experiences. <strong class="text-slate-900">Brands in our network don't chase attention—they plug into it.</strong></p>
+                    <ul class="space-y-4 text-left">
                         <li class="flex items-center gap-3">
                             <div class="bg-indigo-600 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-white"></i></div>
                             <span class="font-bold uppercase tracking-tight text-slate-700">Embedded Giveaway Integration</span>
@@ -237,17 +236,17 @@
                 </div>
                 <div class="w-full md:w-1/2 relative">
                     <div class="absolute inset-0 bg-indigo-600/10 blur-3xl rounded-full"></div>
-                    <div class="bg-white border-2 border-indigo-200 p-8 rounded-3xl shadow-2xl relative overflow-hidden group">
+                    <div class="bg-white border-2 border-indigo-200 p-8 rounded-3xl shadow-2xl relative overflow-hidden group text-left">
                         <div class="flex items-center gap-4 mb-8">
-                             <div class="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg">
-                                <i data-lucide="heart" class="text-rose-400 animate-pulse"></i>
+                             <div class="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg text-indigo-400">
+                                <i data-lucide="heart" class="animate-pulse"></i>
                              </div>
                              <div>
                                 <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Embedded Placement</p>
                                 <p class="font-anton text-xl text-slate-900 uppercase">Giveaway Powered By: [Your Brand]</p>
                              </div>
                         </div>
-                        <div class="p-4 bg-indigo-50 rounded-xl border border-indigo-100 mb-4 text-left">
+                        <div class="p-4 bg-indigo-50 rounded-xl border border-indigo-100 mb-4">
                             <p class="text-xs font-bold text-indigo-900">Push Alert: Winners Announced!</p>
                             <p class="text-[10px] text-indigo-700 mt-1">Visit the [Your Brand] booth for VIP entry.</p>
                         </div>
@@ -259,37 +258,35 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="py-20 md:py-32 bg-white relative border-b border-slate-100">
-        <div class="text-center mb-20">
+    <section class="py-20 md:py-32 bg-white relative border-b border-slate-100 text-center">
+        <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-5xl md:text-7xl font-anton text-slate-900 mb-4 tracking-tighter uppercase">How It Works</h2>
-            <p class="text-xl text-slate-500 font-medium italic">Brands don't chase—they receive opportunities.</p>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 relative">
-            <div class="hidden md:block absolute top-[45px] left-[10%] right-[10%] h-1 bg-gray-100 -z-10 rounded-full overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-violet-500 to-indigo-500 animate-path"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-12 md:gap-8">
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-20 h-20 rounded-full bg-white border-4 border-indigo-500 flex items-center justify-center text-3xl font-anton text-indigo-500 shadow-xl mb-8 relative z-10">01</div>
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg w-full min-h-[200px] flex flex-col justify-center">
-                        <h3 class="text-xl font-anton text-slate-900 mb-3 uppercase">Join the Network</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Tell us about your brand and the audiences you need to reach. We vet for strategic alignment.</p>
-                    </div>
+            <p class="text-xl text-slate-500 font-medium italic mb-20">Brands don't chase—they receive opportunities.</p>
+            <div class="relative">
+                <div class="hidden md:block absolute top-[45px] left-[10%] right-[10%] h-1 bg-gray-100 -z-10 rounded-full overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-violet-500 to-indigo-500 animate-path"></div>
                 </div>
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-20 h-20 rounded-full bg-white border-4 border-violet-500 flex items-center justify-center text-3xl font-anton text-violet-500 shadow-xl mb-8 relative z-10">02</div>
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg w-full min-h-[200px] flex flex-col justify-center">
-                        <h3 class="text-xl font-anton text-slate-900 mb-3 uppercase">Receive Placement</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Get private alerts for upcoming campaigns. See real demand data and projected reach before committing.</p>
+                <div class="grid md:grid-cols-3 gap-12 md:gap-8">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-white border-4 border-indigo-500 flex items-center justify-center text-3xl font-anton text-indigo-500 shadow-xl mb-8 relative z-10">01</div>
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg w-full min-h-[200px] flex flex-col justify-center">
+                            <h3 class="text-xl font-anton text-slate-900 mb-3 uppercase">Join the Network</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Tell us about your brand and the audiences you need to reach. We vet for strategic alignment.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-20 h-20 rounded-full bg-white border-4 border-indigo-600 flex items-center justify-center text-3xl font-anton text-indigo-600 shadow-xl mb-8 relative z-10">03</div>
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg w-full min-h-[200px] flex flex-col justify-center">
-                        <h3 class="text-xl font-anton text-slate-900 mb-3 uppercase">Choose & Plug-In</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Secure your integration. We handle the distribution; you focus on the brand experience.</p>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-white border-4 border-violet-500 flex items-center justify-center text-3xl font-anton text-violet-500 shadow-xl mb-8 relative z-10">02</div>
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg w-full min-h-[200px] flex flex-col justify-center">
+                            <h3 class="text-xl font-anton text-slate-900 mb-3 uppercase">Receive Placement</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Get private alerts for upcoming campaigns. See real demand data and projected reach before committing.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-white border-4 border-indigo-600 flex items-center justify-center text-3xl font-anton text-indigo-600 shadow-xl mb-8 relative z-10">03</div>
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg w-full min-h-[200px] flex flex-col justify-center">
+                            <h3 class="text-xl font-anton text-slate-900 mb-3 uppercase">Choose & Plug-In</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Secure your integration. We handle the distribution; you focus on the brand experience.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -297,52 +294,49 @@
     </section>
 
     <!-- WHERE BRANDS APPEAR -->
-    <section class="py-20 md:py-32 bg-slate-50 border-y border-slate-200 overflow-hidden">
+    <section class="py-20 md:py-32 bg-slate-50 border-y border-slate-200 overflow-hidden text-center">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-7xl font-anton text-slate-900 mb-4 tracking-tighter uppercase">Distribution Touchpoints</h2>
-                <p class="text-indigo-600 font-black uppercase tracking-widest text-xs">Omnichannel presence, embedded into the funnel.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left">
+            <h2 class="text-5xl md:text-7xl font-anton text-slate-900 mb-4 tracking-tighter uppercase">Distribution Touchpoints</h2>
+            <p class="text-indigo-600 font-black uppercase tracking-widest text-xs mb-16">Omnichannel presence, embedded into the funnel.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="gift" class="text-white w-5 h-5"></i></div>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white"><i data-lucide="gift" class="w-5 h-5"></i></div>
                         <h4 class="font-anton text-2xl uppercase">Giveaways</h4>
                     </div>
                     <p class="text-slate-600 text-sm leading-relaxed">Your brand powers high-velocity ticket drops, creating immediate positive sentiment through "winning" moments.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="smartphone" class="text-white w-5 h-5"></i></div>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white"><i data-lucide="smartphone" class="w-5 h-5"></i></div>
                         <h4 class="font-anton text-2xl uppercase">Push Messaging</h4>
                     </div>
                     <p class="text-slate-600 text-sm leading-relaxed">Direct placement inside mobile wallet notifications. When the phone vibrates, your brand is the message.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="mic" class="text-white w-5 h-5"></i></div>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white"><i data-lucide="mic" class="w-5 h-5"></i></div>
                         <h4 class="font-anton text-2xl uppercase">Podcast Mentions</h4>
                     </div>
                     <p class="text-slate-600 text-sm leading-relaxed">Host-read integrations in top-tier cultural podcasts. Your brand isn't an ad; it's a vetted recommendation.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="users-2" class="text-white w-5 h-5"></i></div>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white"><i data-lucide="users-2" class="w-5 h-5"></i></div>
                         <h4 class="font-anton text-2xl uppercase">Influencer Networks</h4>
                     </div>
                     <p class="text-slate-600 text-sm leading-relaxed">Strategic placement across our vetted creator network. Authentic shoutouts that drive immediate traffic to your campaign.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="share-2" class="text-white w-5 h-5"></i></div>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white"><i data-lucide="share-2" class="w-5 h-5"></i></div>
                         <h4 class="font-anton text-2xl uppercase">Group Actions</h4>
                     </div>
                     <p class="text-slate-600 text-sm leading-relaxed">Coordinated social media 'swarms.' We trigger group actions that turn your brand into the trending topic of the hour.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center"><i data-lucide="map-pin" class="text-white w-5 h-5"></i></div>
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
                         <h4 class="font-anton text-2xl uppercase">Live Experiences</h4>
                     </div>
                     <p class="text-slate-600 text-sm leading-relaxed">Strategic physical integration. We build the physical event path around your brand's presence.</p>
@@ -351,15 +345,32 @@
         </div>
     </section>
 
-    <!-- SOCIAL PROOF / THE WALL OF ATTENTION -->
-    <section class="py-20 md:py-32 bg-slate-950 text-white overflow-hidden relative">
+    <!-- FINAL CTA -->
+    <section class="py-20 md:py-32 bg-indigo-50 border-t border-indigo-100 text-center" id="final-cta">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-5xl md:text-7xl font-anton text-slate-900 mb-6 uppercase leading-tight">Don't Sell Space. <br>Place your Brand inside Attention.</h2>
+            <div class="w-full bg-white border border-indigo-200 h-6 rounded-full overflow-hidden mb-6 shadow-inner">
+                <div class="h-full bg-gradient-to-r from-indigo-500 to-violet-500 progress-bar-stripes w-[84%]"></div>
+            </div>
+            <p class="text-indigo-600 font-black uppercase tracking-widest text-sm mb-10">
+                Network Capacity Warning: 84% Full
+            </p>
+            <p class="text-lg text-slate-600 mb-10 font-medium leading-relaxed">Campaign slots are extremely limited to ensure maximum brand dominance. We only work with a small number of strategic partners per campaign. Join the network for priority placement in the next distribution drop.</p>
+            <a href="#join-form" class="block w-full text-center bg-slate-900 hover:bg-black text-white text-xl md:text-2xl font-black py-7 px-6 rounded-2xl uppercase transition-all shadow-[0_10px_40px_rgba(0,0,0,0.2)] border-b-4 border-slate-700 active:translate-y-0 active:border-b-0">
+                Apply for Brand Opportunities
+            </a>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF / THE WALL OF ATTENTION - RELOCATED TO BOTTOM -->
+    <section class="py-20 md:py-32 bg-slate-950 text-white overflow-hidden relative text-center">
         <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
+            <div class="mb-16">
                 <h2 class="text-4xl md:text-7xl font-anton uppercase mb-4">Proof of Massive Reach</h2>
                 <p class="text-indigo-400 font-bold uppercase tracking-widest text-sm">Real Audiences. Real Engagement. Real-time Results.</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 mb-20 text-center">
+            <div class="grid md:grid-cols-3 gap-8 mb-20">
                 <div class="p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
                     <div class="text-5xl font-anton text-indigo-400 mb-2">1.2M+</div>
                     <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Total Campaign Impressions</p>
@@ -374,53 +385,34 @@
                 </div>
             </div>
 
-            <!-- THE WALL OF ATTENTION -->
+            <!-- IMAGE GRID AT THE BOTTOM -->
             <div class="crowd-grid mb-20">
                 <div class="crowd-item col-span-2 row-span-2">
-                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Real Human Connection">
+                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&q=80&w=1200" alt="Authentic Human Connection" loading="lazy">
                 </div>
-                <div class="crowd-item">
-                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Massive Crowd Action">
+                <div class="crowd-item col-span-1">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=800" alt="Crowd Hands Up" loading="lazy">
                 </div>
-                <div class="crowd-item col-span-2">
-                    <img src="https://images.unsplash.com/photo-1514525253361-bee8718a300a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nightlife Synergy">
+                <div class="crowd-item col-span-1 md:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1200" alt="Festival Vibe" loading="lazy">
                 </div>
-                <div class="crowd-item">
-                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Shared Moment">
+                <div class="crowd-item col-span-1">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800" alt="Concert Energy" loading="lazy">
                 </div>
-                <div class="crowd-item">
-                    <img src="https://images.unsplash.com/photo-1540575861501-7ce0e1d1aa9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="High Traffic">
+                <div class="crowd-item col-span-1">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800" alt="Massive Event" loading="lazy">
                 </div>
-                <div class="crowd-item col-span-3">
-                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Audience Scale">
+                <div class="crowd-item col-span-2 md:col-span-3">
+                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&q=80&w=1200" alt="Audience Reach" loading="lazy">
                 </div>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-indigo-600 p-8 md:p-16 rounded-[3rem] shadow-2xl text-center relative overflow-hidden">
+            <div class="max-w-4xl mx-auto bg-indigo-600 p-8 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden">
                 <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
-                <p class="font-anton text-2xl md:text-5xl leading-tight uppercase mb-6 text-white">"We don't just reach people. We trigger them into action."</p>
+                <p class="font-anton text-2xl md:text-5xl leading-tight uppercase mb-6 text-white text-center">"We don't just reach people. We trigger them into action."</p>
                 <div class="h-1 w-20 bg-white/30 mx-auto mb-6"></div>
-                <p class="text-indigo-100 font-bold uppercase tracking-[0.3em] text-xs">The Distribution Engine for Modern Brands</p>
+                <p class="text-indigo-100 font-bold uppercase tracking-[0.3em] text-xs text-center">The Distribution Engine for Modern Brands</p>
             </div>
-        </div>
-    </section>
-
-    <!-- URGENCY & FINAL CTA -->
-    <section class="py-20 md:py-32 bg-indigo-50 border-t border-indigo-100" id="final-cta">
-        <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-5xl md:text-7xl font-anton text-slate-900 mb-6 uppercase leading-tight">Don't Sell Space. <br>Place your Brand inside Attention.</h2>
-            <div class="w-full bg-white border border-indigo-200 h-6 rounded-full overflow-hidden mb-6 shadow-inner">
-                <div class="h-full bg-gradient-to-r from-indigo-500 to-violet-500 progress-bar-stripes w-[84%]"></div>
-            </div>
-            <p class="text-indigo-600 font-black uppercase tracking-widest text-sm mb-10">
-                Network Capacity Warning: 84% Full
-            </p>
-            <p class="text-lg text-slate-600 mb-10 font-medium leading-relaxed">Campaign slots are extremely limited to ensure maximum brand dominance. We only work with a small number of strategic partners per campaign. Join the network for priority placement in the next distribution drop.</p>
-            
-            <a href="#join-form" class="block w-full text-center bg-slate-900 hover:bg-black text-white text-xl md:text-2xl font-black py-7 px-6 rounded-2xl uppercase transition-all shadow-[0_10px_40px_rgba(0,0,0,0.2)] border-b-4 border-slate-700 active:translate-y-0 active:border-b-0">
-                Apply for Brand Opportunities
-            </a>
-            <p class="mt-6 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Entry is selective. Not all brands will be accepted into the distribution network.</p>
         </div>
     </section>
 
@@ -443,7 +435,6 @@
             if(formArrow) formArrow.style.opacity = '0';
         });
 
-        // Countdown Timer simulation
         let timeInSeconds = 2 * 60 + 14; 
         const countdownElement = document.getElementById('countdown');
         setInterval(() => {
